@@ -161,7 +161,11 @@
             // check if delete button clicked
             if(e.target.className == 'delete'){
 
-                console.log("delete");
+               // Select & Remove Output
+               document.querySelector('.message').remove();
+
+               // Clear input text
+               document.querySelector('.zip').value = '';
 
             }
         

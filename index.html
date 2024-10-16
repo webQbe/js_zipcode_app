@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="fontawesome-free-6.6.0-web/css/all.css">
 
     <title>Location Finder</title>
+
+    <style>
+
+        .icon-remove, .icon-check{
+
+            display: none; /* hide icons */
+
+        }
+
+    </style>
 </head>
 <body>
     <section class="hero hero-body is-dark container">
@@ -25,14 +35,17 @@
                   <span class="icon is-small is-left">
                     <i class="fas fa-map-pin"></i>
                   </span>
-                  <span class="icon is-small is-right">
+
+                  <!-- DISPLAY WHEN REQUEST IS SUCCESSFUL -->
+                  <span class="icon is-small is-right icon-check">
                     <i class="fas fa-check"></i>
                   </span>
+
+                  <!-- DISPLAY WHEN REQUEST IS FAILED -->
                   <span class="icon is-small is-right icon-remove">
                     <i class="fas fa-remove"></i>
                   </span>
                 </div>
-                <p class="help is-success"></p>
               </div>
         </form>
     </section>

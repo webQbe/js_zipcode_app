@@ -57,7 +57,20 @@
         <div id="output"></div>
     </div>
 
+    <!-- JAVASCRIPT -->
+    <script>
+        // Listen for Submit
+        document.querySelector('#zipForm').addEventListener('submit', getLocationInfo);
 
+        function getLocationInfo(e){
 
+            // prevent default submit
+            e.preventDefault();
+
+            console.log('Entered!');
+
+        }
+        
+    </script>
 </body>
 </html>

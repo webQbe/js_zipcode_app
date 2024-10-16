@@ -74,6 +74,8 @@
                     // if response is NOT OK
                     if(response.status != 200){
 
+                        showIcon('remove'); // show remove icon
+
                         document.querySelector('#output').innerHTML = 
                         `
                             <article class="message message-body is-danger">
@@ -85,8 +87,11 @@
                         // get statusText 
                         throw Error(response.statusText);
 
-                    } else {
+                    } else { // Status is OK
 
+                        // Show check icon
+                        showIcon('check');
+                        
                         return response.json();
 
                     }
@@ -100,6 +105,21 @@
 
             // Prevent default submit
             e.preventDefault();
+
+        }
+
+        // Display check or remove icon on input
+
+        function showIcon(icon){
+
+            // hide icons
+            document.querySelector('.icon-remove').style.display = 'none';
+            document.querySelector('.icon-check').style.display = 'none';
+
+            // Show correct icon
+            // pass icon parameter
+            document.querySelector(`.icon-${icon}`).style.display = 'inline-flex';
+
 
         }
         

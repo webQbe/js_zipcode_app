@@ -91,7 +91,7 @@
 
                         // Show check icon
                         showIcon('check');
-                        
+
                         return response.json();
 
                     }
@@ -99,9 +99,37 @@
                 }) // take 1st promise and map it to JSON
                 .then(data => { // get data from 2nd promise
 
-                    console.log(data);
+                    // Show Location Info
+                    let output = '';
 
-                }).catch(err => console.log(err)); // catch & log error
+                    // Loop through places
+                    data.places.forEach(place => {
+
+                        // append to output
+                        output += `
+                           <article class="message is-primary">
+                                <div class="message-header">
+                                    <p>Location Info</p>
+                                    <button class="delete"></button>
+                                </div>
+                                <div class="message-body">
+                                    <ul>
+                                        <li><strong>City: </strong>${place['place name']}</li>
+                                        <li><strong>State: </strong>${place['state']}</li>
+                                        <li><strong>Longitude: </strong>${place['longitude']}</li>
+                                        <li><strong>Latitude: </strong>${place['latitude']}</li>
+                                    </ul>
+                                </div>
+                            </article> `;
+
+                    });
+
+                    // Insert into output div
+                    document.querySelector('#output').innerHTML = output;
+                        
+                    })
+
+                .catch(err => console.log(err)); // catch & log error
 
             // Prevent default submit
             e.preventDefault();
@@ -126,3 +154,5 @@
     </script>
 </body>
 </html>
+
+

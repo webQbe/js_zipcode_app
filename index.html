@@ -62,6 +62,10 @@
         // Listen for Submit
         document.querySelector('#zipForm').addEventListener('submit', getLocationInfo);
 
+        // Listen for close
+        // close button is inside the for loop
+        document.querySelector('body').addEventListener('click', closeOutput);
+
         function getLocationInfo(e){
 
             // Get Zip value from input
@@ -149,6 +153,18 @@
             document.querySelector(`.icon-${icon}`).style.display = 'inline-flex';
 
 
+        }
+
+        // Close Output
+        function closeOutput(e){
+
+            // check if delete button clicked
+            if(e.target.className == 'delete'){
+
+                console.log("delete");
+
+            }
+        
         }
         
     </script>

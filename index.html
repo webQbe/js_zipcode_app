@@ -67,11 +67,16 @@
             // Get Zip value from input
             const zip = document.querySelector('.zip').value;
 
-            // log input value
-            console.log(zip);
+            // Make a Request with Fetch()
+            fetch(`http://api.zippopotam.us/us/${zip}`)
+                .then(response => response.json()) // take 1st promise and map it to JSON
+                .then(data => { // get data from 2nd promise
 
+                    console.log(data);
 
-            // prevent default submit
+                })
+
+            // Prevent default submit
             e.preventDefault();
 
         }

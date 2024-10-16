@@ -71,7 +71,25 @@
             fetch(`http://api.zippopotam.us/us/${zip}`)
                 .then(response => {
                     
-                    console.log(response.status);
+                    // if response is NOT OK
+                    if(response.status != 200){
+
+                        document.querySelector('#output').innerHTML = 
+                        `
+                            <article class="message message-body is-danger">
+
+                                Invalid Zipcode, please try again!
+
+                            </article>
+                        `;
+                        // get statusText 
+                        throw Error(response.statusText);
+
+                    } else {
+
+                        return response.json();
+
+                    }
 
                 }) // take 1st promise and map it to JSON
                 .then(data => { // get data from 2nd promise
